@@ -236,13 +236,12 @@ int main(int argc, char*argv[])
     Mat ref_err;
     //VideoWriter video("reflection_matching.avi", CV_FOURCC('M','J','P','G'), 10, Size(800, 600),true);
     
-    while(1)
+    char filename[256];
+    while(fscanf(stdin, "%s", filename)!=EOF)
     {
-        char filename[256];
-        fscanf(stdin, "%s", filename);
-        //cout << filename << endl;
+        cout << filename << endl;
         template_num = TMP_NUM;
-        img = imread(filename, 1);
+        img = imread(filename, -1);
         img = img(Rect(30,15,img.cols-65,img.rows-45));
         //imshow("input",img);
         //waitKey(0);
