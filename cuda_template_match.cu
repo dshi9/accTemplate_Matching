@@ -16,11 +16,11 @@
 
 
 
-#define KERNEL_WIDTH 31
+#define KERNEL_WIDTH 17
 #define KERNEL_RADIUS (KERNEL_WIDTH/2)
 #define TILE_WIDTH (33-KERNEL_WIDTH)
 #define BLK_SIZE (TILE_WIDTH+KERNEL_WIDTH-1)
-#define TMP_NUM 8
+#define TMP_NUM 48 
 
 
 #define ACCURATE_MODE KERNEL_WIDTH
@@ -239,12 +239,8 @@ int main(int argc, char*argv[])
     char filename[256];
     while(fscanf(stdin, "%s", filename)!=EOF)
     {
-        cout << filename << endl;
         template_num = TMP_NUM;
         img = imread(filename, -1);
-        img = img(Rect(30,15,img.cols-65,img.rows-45));
-        //imshow("input",img);
-        //waitKey(0);
         if(!img.data)
         {
             cout << "Problem loading image !!!" << endl;
